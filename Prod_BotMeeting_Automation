@@ -1,0 +1,451 @@
+package sridhar;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import sridhar.ScreenRecorderUtil;
+
+
+public class Practise_Botmeetings {
+	
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Pictures\\chromedriver.exe");
+	
+	driver = new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	driver.manage().deleteAllCookies();
+		
+	driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+	driver.get("https://app.skilapp.com/b/login-business");
+	
+
+	}
+	
+	@Test(priority=0)
+	void RequestBotMeetings() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	ScreenRecorderUtil.startRecord("RequestBotMeetings");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("8074238632");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	System.out.println("*signed in with Admin number");
+	driver.findElement(By.xpath("//button[contains(text() , ' Request Bot Assessment ')]")).click();
+	//driver.findElement(By.xpath("//div[@class = 'mat-menu-content']//a[@id = 'dialogAuthor01']")).click();
+	Thread.sleep(8000);
+	System.out.println("*clicked on Request Bot Assessment");
+	driver.findElement(By.xpath("//input[@placeholder = 'Applicant Name']")).sendKeys("JaiKiran");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Name");
+	driver.findElement(By.xpath("//input[@placeholder = 'Applicant Email']")).sendKeys("uthayajn@mail.uc.edu");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Email");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	Thread.sleep(4000);
+	System.out.println("*seleted Country code");
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("4698537528");
+	Thread.sleep(2000);
+	System.out.println("*Entered Mentor phone number");
+	driver.findElement(By.xpath("//input[@id = 'fileControl2']")).sendKeys("C:\\Users\\hp\\Desktop\\user.png");
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//input[@id = 'fileControl1']")).sendKeys("C:\\Users\\hp\\Desktop\\test.txt");
+	//driver.findElement(By.xpath("//span[@class = 'mat-select-placeholder ng-tns-c6-45 ng-star-inserted']")).click();
+	//Thread.sleep(4000);
+	//System.out.println("*uploaded Resume");
+	//span[contains(text() , 'please enter (or) copy&paste job description... ヽ(^。^)丿')]
+	//driver.findElement(By.xpath("//div[@class = 'mat-select-value ng-tns-c158-28']//following::span[1]")).click();
+	//span[contains(text() , ' Yes ')]
+	//driver.findElement(By.xpath("//span[contains(text() , ' Yes ')]")).click();
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'please enter (or) copy&paste job description... ヽ(^。^)丿')]")).sendKeys("Role:MeanStack Developer");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Core Technologies To Assess*']")).sendKeys("java");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+	System.out.println("*Entered Technologies");
+	//driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+	//Thread.sleep(2000);
+	//span[contains(text() , ' java ')]
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("based on the technical front?");
+	//Thread.sleep(8000);
+	//System.out.println("*selected Lisa Build Question");
+	//js.executeScript("arguments[0].scrollIntoView();", Element);
+	//Element.sendKeys("java");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What happens if two sets of tags overlap each other?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain how is data stored in HTML5?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Describe block formatting context and how it works?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain about application cache?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What happens if the list style type property is used on a non-list element like a paragraph?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("How would you implement a web design comp that uses non-standard fonts?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Describe pseudo elements and discuss what are they used for?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain about entity?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Have you ever used a grid system, and if so, what do you prefer?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain the ng-model​ directive in AngularJs?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is the use of Push method in JavaScript?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain ng-bind-template and ng-non-bindable?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain the concept of scope hierarchy?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is Scaffolding in Express.js?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Explain what is Angular Expression?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is the 'Strict' mode in JavaScript and how can it be enabled?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Where can we implement the DOM manipulation in AngularJs?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the timing features of Node.js?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is the use of next in Express JS?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is an undefined value in JavaScript?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are event emitters in NodeJS?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Compare MongoDB and CouchDB at a high level");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("If Node.js is single threaded then how it handles concurrency?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Which is the first argument usually passed to a Node.js callback handler?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	/***driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);***/
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("Provide some example of config file separation for dev and prod environments,");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("How can you see the connection used by Mongos?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What do you understand by NoSQL databases?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("If you remove a document from the database, does MongoDB remove it from disk?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What is a child_process module in Node.js?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	/***driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).clear();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Search for questions by tags']")).sendKeys("What are the possible use cases for Java.lang.threadlocal?");
+	//driver.findElement(By.xpath("//textarea[@name = 'notes']")).sendKeys("Techniqual screening");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-cell[@class = 'mat-cell cdk-column-select mat-column-select ng-star-inserted']//label[1]")).click();
+	Thread.sleep(4000);
+	
+	
+	/***driver.findElement(By.xpath("//input[@placeholder = 'assessment live date and time:']")).sendKeys("11/24/2020, 10:00 AM");
+	Thread.sleep(2000);
+	System.out.println("*Entered Assessment live date and time");
+    driver.findElement(By.xpath("//span[contains(text() , 'Select Timezone')]")).click();
+    driver.findElement(By.xpath("//mat-option[@value = 'Asia/Kolkata']")).click();
+    System.out.println("*selected Timezone");
+    Thread.sleep(20000);
+    driver.findElement(By.xpath("//button[contains(text() , 'Upsert & Reset ')]")).click();
+	Thread.sleep(4000);
+	System.out.println("*Meeting created");
+	//driver.findElement(By.xpath("//button[contains(text() , 'Upsert & Reset ')]")).click();
+	Thread.sleep(8000);***/
+	ScreenRecorderUtil.stopRecord();
+		
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
