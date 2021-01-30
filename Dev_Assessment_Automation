@@ -1,0 +1,80 @@
+package sridhar;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import sridhar.ScreenRecorderUtil;
+
+public class RequestAssessment {
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Pictures\\chromedriver.exe");
+	
+	driver = new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	driver.manage().deleteAllCookies();
+		
+	driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+	driver.get("https://dev-api.iempowernow.com/b/login-business");
+	
+
+	}
+	
+	@Test(priority=0)
+	void RequestBotMeetings() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	ScreenRecorderUtil.startRecord("RequestBotMeetings");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9704017543");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1234");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	System.out.println("*sign in with Admin number");
+	driver.findElement(By.xpath("//button[contains(text() , ' Request Assessment ')]")).click();
+	System.out.println("*clicked on Request Assessment");
+	//driver.findElement(By.xpath("//div[@class = 'mat-menu-content']//a[@id = 'dialogAuthor01']")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Applicant Name']")).sendKeys("srikanth");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Name");
+	driver.findElement(By.xpath("//input[@placeholder = 'Email']")).sendKeys("sridhar.t@kairostech.com");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Email");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	Thread.sleep(4000);
+	System.out.println("*seleted Country code");
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("8919425159");
+	Thread.sleep(2000);
+	System.out.println("*Entered Mentor phone number");
+	driver.findElement(By.xpath("//input[@placeholder = 'Core Technologies To Assess*']")).sendKeys("java");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+	Thread.sleep(4000);
+	System.out.println("*Entered Technologies");
+	driver.findElement(By.xpath("//input[@id = 'fileControl1']")).sendKeys("C:\\Users\\hp\\Desktop\\test.txt");
+	System.out.println("*uploaded Resume");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , 'Type Here...')]")).sendKeys("Testing");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Request Assessment ')]")).click();
+	//driver.findElement(By.xpath("//input[@placeholder = 'Core Technologies To Assess*']")).sendKeys("java");
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+
+}
+}
