@@ -1,0 +1,96 @@
+package srikanth;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class VGGFOLDER {
+
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Documents\\chromedriver\\chromedriver.exe");
+
+	driver = new ChromeDriver();
+
+	driver.manage().window().maximize();
+
+	driver.get("https://alpha.skil.ai/b/login");
+
+
+
+	}
+
+    @Test
+	void VggQA() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//MyScreenRecorder.startRecording("VggQA");
+
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	WebElement ele = driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]"));
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", ele);
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9441813929");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(15000);
+	System.out.println("-Login in the Page");
+	//boolean b = driver.findElement(By.xpath("//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]")).isDisplayed();
+	
+	//WebElement ele = driver.findElement(By.xpath("//a[contains(text() , 'Service')]"));
+	//JavascriptExecutor executor = (JavascriptExecutor)driver;
+	//executor.executeScript("arguments[0].click();", ele);
+	//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]
+	//boolean b = driver.findElement(By.xpath("//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]")).isDisplayed();
+	//Assert.assertTrue(b);
+	String winHandleBefore = driver.getWindowHandle();
+	
+	driver.findElement(By.xpath("//button[@id = 'createbtn']")).click();
+	Thread.sleep(15000);
+	System.out.println("-Project Created");
+	//driver.navigate().to("https://alpha.skil.ai/via/src/index.html");
+	for(String winHandle : driver.getWindowHandles()){
+	    driver.switchTo().window(winHandle);
+	}
+	Thread.sleep(20000);
+	driver.findElement(By.xpath("//input[@id = 'project_name']")).clear();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@id = 'project_name']")).sendKeys("LCA_PAGE_LAYOUT_01");
+	System.out.println("-Project Name Created");
+	//Thread.sleep(8000);
+	//input[@title = 'VIA project name']
+	//driver.findElement(By.xpath("//span[contains(text() , 'Add Files')]")).click();
+	//WebElement addFile = driver.findElement(By.xpath("//span[contains(text() , 'Add Files')]"));
+	//addFile.click();
+	//addFile.sendKeys("C:\\Users\\hp\\Desktop\\2004125223066-0.png");
+	//driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	//Thread.sleep(6000);
+	//Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload.exe");
+	//driver.findElement(By.xpath(".//span[text()='open']")).click();
+	//Thread.sleep(6000);
+	//System.out.println("-Added one File");
+	//driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	//Thread.sleep(6000);
+	//Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload2.exe");
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//span[@title = 'Add new files from local disk directory']")).click();
+	Thread.sleep(8000);
+	Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload3.exe");
+	Thread.sleep(7000);
+	 Alert alert = driver.switchTo().alert();
+	 alert.accept();
+	//driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	//Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload2.exe"+""+"C:\\Users\\hp\\Desktop\\2002820045281-2.png");
+	//Thread.sleep(11000);
+
+}
+}
