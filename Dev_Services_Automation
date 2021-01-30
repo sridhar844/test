@@ -1,0 +1,192 @@
+package sridhar;
+
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import sridhar.ScreenRecorderUtil;
+
+public class Request_Service {
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Pictures\\chromedriver.exe");
+	
+	driver = new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	driver.manage().deleteAllCookies();
+		
+	driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+	driver.get("https://dev-api.iempowernow.com/b/login-business");
+	
+
+	}
+	
+	@Test(priority=0)
+	void RequestBotMeetings() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	ScreenRecorderUtil.startRecord("RequestBotMeetings");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9490933944");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1234");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	System.out.println("*sign in with Admin number");
+	//driver.findElement(By. linkText("Service")).click();
+	//WebElement myDynamicElement = 
+	//(new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.id("usrUTils")));
+	WebElement ele11  =  driver.findElement(By.xpath("//a[contains(text() , 'Service')]"));
+    JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+	executor11.executeScript("arguments[0].click();", ele11);
+	System.out.println("*clicked on Request Assessment");
+	//driver.findElement(By.xpath("//div[@class = 'mat-menu-content']//a[@id = 'dialogAuthor01']")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Skills']")).sendKeys("python");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Name");
+	driver.findElement(By.xpath("//mat-select[@placeholder = 'Pick Meeting Type']")).click();
+	Thread.sleep(2000);
+	//span[contains(text() , ' Mock Interview ')]
+	driver.findElement(By.xpath("//span[contains(text() , ' Mock Interview ')]")).click();
+	System.out.println("*Entered Applicant Email");
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Name']")).sendKeys("srikanth");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Name");
+	driver.findElement(By.xpath("//input[@placeholder = 'Email']")).sendKeys("sridhar.t@kairostech.com");
+	Thread.sleep(2000);
+	System.out.println("*Entered Applicant Email");
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]")).click();
+	Thread.sleep(4000);
+	System.out.println("*seleted Country code");
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("8919425159");
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//input[@placeholder = 'Core Technologies To Assess*']")).sendKeys("java");
+    //Thread.sleep(4000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+	//Thread.sleep(4000);
+	//System.out.println("*Entered Technologies");
+	
+	//driver.findElement(By.xpath("//span[@class = 'mat-select-placeholder ng-tns-c6-45 ng-star-inserted']")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' No ')]")).click();
+	//driver.findElement(By.xpath("//input[@placeholder = 'Core Technologies To Assess*']")).sendKeys("java");
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' java ')]")).click();
+	driver.findElement(By.xpath("//input[@name = 'meetingDate']")).sendKeys("24");
+	//driver.findElement(By.xpath("//div[contains(text() , ' 18 ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-select[@name = 'meetingHour']")).sendKeys("4");
+	//driver.findElement(By.xpath("//span[contains(text() , ' 4 ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-select[@name = 'meetingMin']")).sendKeys("15");
+	//driver.findElement(By.xpath("//span[contains(text() , '15')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-select[@name = 'meetingAMPM']")).sendKeys("PM");
+	//driver.findElement(By.xpath("//span[contains(text() , ' PM ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//mat-select[@name = 'meetingTz']")).sendKeys("Asia/Kolkata");
+	//driver.findElement(By.xpath("//span[contains(text() , ' Asia/Kolkata ')]")).click();
+	//Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Add New')]")).click();
+	Thread.sleep(4000);
+	WebElement element = driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-43']//input[1]"));
+	element.sendKeys("24");
+	//WebDriverWait wait = new WebDriverWait(driver, 10);
+    //WebElement passwordElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class = 'row ng-star-inserted']//following::label[6]")));
+    //passwordElement.click();
+    //passwordElement.sendKeys("18");
+	//driver.findElement(By.xpath("//div[contains(text() , ' 18 ')]")).click();
+	//mat-select[@id = 'mat-select-22']
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-44']//mat-select[1]")).sendKeys("4");
+	//driver.findElement(By.xpath("//span[contains(text() , ' 4 ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-46']//mat-select[1]")).sendKeys("30");
+	//driver.findElement(By.xpath("//span[contains(text() , '30')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-48']//mat-select[1]")).sendKeys("PM");
+	//driver.findElement(By.xpath("//span[contains(text() , ' PM ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-50']//mat-select[1]")).sendKeys("Asia/Kolkata");
+	//driver.findElement(By.xpath("//span[contains(text() , ' Asia/Kolkata ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Add New')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-52']//input[1]")).sendKeys("24");
+	//driver.findElement(By.xpath("//div[contains(text() , ' 18 ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-53']//mat-select[1]")).sendKeys("4");
+	//driver.findElement(By.xpath("//span[contains(text() , ' 4 ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-55']//mat-select[1]")).sendKeys("45");
+	//driver.findElement(By.xpath("//span[contains(text() , '45')]")).click();;
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-57']//mat-select[1]")).sendKeys("PM");
+	//driver.findElement(By.xpath("//span[contains(text() , ' PM ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-form-field-infix ng-tns-c152-59']//mat-select[1]")).sendKeys("Asia/Kolkata");
+	//driver.findElement(By.xpath("//span[contains(text() , ' Asia/Kolkata ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@id = 'fileControl1']")).sendKeys("C:\\Users\\hp\\Desktop\\test.txt");
+	System.out.println("*uploaded Resume");
+	Thread.sleep(4000);
+	//input[@id = 'fileControl2']
+	driver.findElement(By.xpath("//input[@id = 'fileControl2']")).sendKeys("C:\\Users\\hp\\Desktop\\user.png");
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Create Meeting ')]")).click();
+	//button[contains(text() , 'Create Meeting ')]
+	
+	//input[@id = 'mat-input-53']
+	//div[contains(text() , ' 18 ')]
+	//mat-select[@id = 'mat-select-18']
+	//span[contains(text() , ' 4 ')]
+	//span[contains(text() , '15')]
+	//div[@class = 'mat-select-value ng-tns-c158-137']//following::span[1]
+	//span[contains(text() , '15')]
+	//mat-select[@placeholder = 'AM/PM']
+	//span[contains(text() , ' PM ')]
+	//div[@class = 'mat-select-value ng-tns-c158-141']//following::span[1]
+	//span[contains(text() , ' Asia/Kolkata ')]
+	//button[contains(text() , 'Add New')]
+	//input[@id = 'mat-input-54']
+	//div[contains(text() , ' 18 ')]
+	//mat-select[@id = 'mat-select-22']
+	//span[contains(text() , ' 4 ')]
+	//mat-select[@id = 'mat-select-23']
+	//span[contains(text() , '30')]
+	//mat-select[@id = 'mat-select-25']
+	//span[contains(text() , ' PM ')]
+	//div[@class = 'mat-select-value ng-tns-c158-154']//following::span[1]
+	//span[contains(text() , ' Asia/Kolkata ')]
+	//input[@id = 'mat-input-55']
+	//div[contains(text() , ' 18 ')]
+	//mat-select[@id = 'mat-select-26']
+	//span[contains(text() , ' 4 ')]
+	//mat-select[@id = 'mat-select-27']
+	//span[contains(text() , '45')]
+	//mat-select[@id = 'mat-select-28']//following::span[1]
+	//span[contains(text() , ' PM ')]
+	//mat-select[@id = 'mat-select-29']//following::span[1]
+	//span[contains(text() , ' Asia/Kolkata ')]
+	
+	
+	
+}
+}
+
