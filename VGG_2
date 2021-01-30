@@ -1,0 +1,206 @@
+package srikanth;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class VGGQA {
+	
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Documents\\chromedriver\\chromedriver.exe");
+
+	driver = new ChromeDriver();
+
+	driver.manage().window().maximize();
+
+	driver.get("https://beta1.skil.ai/b/login");
+
+
+
+	}
+
+    @Test
+	void VggQA() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//MyScreenRecorder.startRecording("VggQA");
+
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	WebElement ele = driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]"));
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", ele);
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9441813929");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(6000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(15000);
+	System.out.println("-Login in the Page");
+	//boolean b = driver.findElement(By.xpath("//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]")).isDisplayed();
+	
+	//WebElement ele = driver.findElement(By.xpath("//a[contains(text() , 'Service')]"));
+	//JavascriptExecutor executor = (JavascriptExecutor)driver;
+	//executor.executeScript("arguments[0].click();", ele);
+	//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]
+	//boolean b = driver.findElement(By.xpath("//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]")).isDisplayed();
+	//Assert.assertTrue(b);
+	String winHandleBefore = driver.getWindowHandle();
+	
+	driver.findElement(By.xpath("//button[@id = 'createbtn']")).click();
+	Thread.sleep(6000);
+	//System.out.println("-Project Created");
+	//driver.navigate().to("https://alpha.skil.ai/via/src/index.html");
+	for(String winHandle : driver.getWindowHandles()){
+	    driver.switchTo().window(winHandle);
+	}
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@id = 'project_name']")).clear();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@id = 'project_name']")).sendKeys("TESTING_INVOICE_LAYOUT_10");
+	System.out.println("-Project Name Created");
+	Thread.sleep(6000);
+	//input[@title = 'VIA project name']
+	//driver.findElement(By.xpath("//span[contains(text() , 'Add Files')]")).click();
+	//WebElement addFile = driver.findElement(By.xpath("//span[contains(text() , 'Add Files')]"));
+	//addFile.click();
+	//addFile.sendKeys("C:\\Users\\hp\\Desktop\\2004125223066-0.png");
+	driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	Thread.sleep(6000);
+	Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\File.exe");
+	//driver.findElement(By.xpath(".//span[text()='open']")).click();
+	Thread.sleep(8000);
+	System.out.println("-Added one File");
+	driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	Thread.sleep(6000);
+	Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload2.exe");
+	Thread.sleep(6000);
+	System.out.println("-Added second File");
+	//driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	//Thread.sleep(6000);
+	//Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload3.exe");
+	//Thread.sleep(6000);
+	//driver.findElement(By.xpath("//span[@title = 'Add new file from local disk']")).click();
+	//Runtime.getRuntime().exec("C:\\Users\\hp\\Desktop\\AutoIT\\Fileupload2.exe"+""+"C:\\Users\\hp\\Desktop\\2002820045281-2.png");
+	//Thread.sleep(11000);
+	driver.findElement(By.xpath("//button[@id = 'attributes_editor_panel_title']")).click();
+	Thread.sleep(10000);
+	//driver.findElement(By.xpath("//select[@class = 'custom-select ng-pristine ng-valid ng-star-inserted ng-touched']")).click();
+	//driver.findElement(By.xpath("//option[contains(text() , 'INVOICE')]")).click();
+	////div[@class = 'input-group-prepend']//span[@class = 'input-group-text selected']
+
+	driver.findElement(By.xpath("//input[@placeholder = 'attribute name']")).sendKeys("mode");
+	//span[contains(text() , ' 1')]
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[@id = 'button_add_new_attribute']")).click();
+	Thread.sleep(4000);
+	Select select = new Select(driver.findElement(By.id("attribute_type")));
+	select.selectByVisibleText("radio");
+	//select.selectByIndex(1);
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//input[@placeholder = 'Add new option id']")).sendKeys("type1 type2 type3 type4");
+	Thread.sleep(4000);
+	System.out.println("-attributes created");
+	driver.findElement(By.xpath("//li[contains(text() , 'Project')]")).click();
+	Thread.sleep(4000);
+	//driver.findElement(By.xpath("//li[@id = 'disableSave']")).click();
+	//Thread.sleep(4000);
+	System.out.println("-Project Saved");
+	//driver.navigate().to("https://alpha.skil.ai/deep-learning/ai/annotations");
+	driver.close();
+   // Switch back to original browser (first window)
+	driver.switchTo().window(winHandleBefore);
+	Thread.sleep(6000);
+	driver.navigate().refresh();
+	Thread.sleep(6000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'TEST_BOL_LAYOUT_1')]")).click();
+	//Thread.sleep(6000);
+	//label[@id = 'mat-form-field-label-7']
+	driver.findElement(By.xpath("//span[contains(text() , 'DSV_INVOICE_LAYOUT_10')]//following::img[1]")).click();
+	Thread.sleep(4000);
+	////button[contains(text() , 'Add Users ')]
+	driver.findElement(By.xpath("//button[contains(text() , 'Add Users ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[@class = 'mat-select-arrow-wrapper']")).click();
+	Thread.sleep(4000);
+	WebElement Element = driver.findElement(By.xpath("//span[contains(text() , 'Sayi')]"));
+	js.executeScript("arguments[0].scrollIntoView();", Element);
+	Element.click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , 'Sridhar')]")).click();
+	Thread.sleep(4000);
+	System.out.println("Added two users");
+	//driver.findElement(By.xpath("//span[contains(text() , 'Sushma')]")).click();
+	//s.executeScript("arguments[0].scrollIntoView();", Element);
+	//Element.click();
+	//span[contains(text() , 'Proceed')]
+	Thread.sleep(5000);
+	//driver.findElement(By.xpath("//html")).click();
+	Actions action = new Actions(driver);
+    action.moveByOffset(0, 0).click().build().perform();
+	//h4[contains(text() , 'Please select users to add to project')]
+	//Actions action = new Actions(driver); 
+	//WebElement element = driver.findElement(By.xpath("//div[@class = 'mat-dialog-content ng-star-inserted']//h4"));
+
+	//action.moveToElement(element).build().perform();
+	//driver.findElement(By.xpath("//div[@class = 'mat-dialog-content ng-star-inserted']//h4")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , 'Proceed')]")).click();
+	System.out.println("-Users Added");
+	//mat-cell[contains(text() , ' via_project_QA_14Sep2020_13h56m ')]//following::button[4]
+	//driver.findElement(By.xpath("//mat-cell[contains(text() , ' via_project_QA_12oct2020_sridhar_17h56m ')]//following::button[3]")).click();
+	Thread.sleep(6000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'TEST_BOL_LAYOUT_1')]")).click();
+    //Thread.sleep(6000);
+	driver.findElement(By.xpath("//span[contains(text() , 'DSV_INVOICE_LAYOUT_10')]//following::img[1]")).click();
+	Thread.sleep(4000);
+	//Split 
+	driver.findElement(By.xpath("//button[contains(text() , 'Split')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , 'Auto Split')]")).click();
+	Thread.sleep(4000);
+	System.out.println("-Auto Splited the Images");
+	//driver.findElement(By.linkText("Annotation")).click();
+	Thread.sleep(4000);
+	
+	System.out.println("****************************");
+	Thread.sleep(50000);
+	/***driver.findElement(By.xpath("//span[contains(text() , 'DSV_BOL_LAYOUT_10')]")).click();
+	Thread.sleep(6000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'DSV_INVOICE_LAYOUT_10')]//following::img[2]")).click();
+	//Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Merge ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , 'DSV_BOL_LAYOUT_1')]")).click();
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Train ')]")).click();
+	Thread.sleep(4000);
+	//textarea[@id = 'exampleFormControlTextarea1']
+	driver.findElement(By.xpath("//textarea[@id = 'exampleFormControlTextarea1']")).sendKeys("Approved");
+	Thread.sleep(4000);
+	//span[contains(text(), 'Ready for train')]
+	// Train 
+	driver.findElement(By.xpath("//span[contains(text(), 'Ready for train')]")).click();
+	Thread.sleep(4000);
+	//driver.findElement(By.xpath("span[contains(text() , ' 4')]")).click();
+	//driver.findElement(By.xpath("span[contains(text() , ' 4')]")).click();*/
+	//mat-cell[contains(text() , ' 5f8070792c58f100196e53f0 ')]//following::button[1](Annotate)
+	//MyScreenRecorder.stopRecording();
+
+	//span[contains(text() , 'CHROBINSON_BOL_LAYOUT_03')]//following::img[1]
+
+	}
+	}
+	
+	
+	
+
