@@ -1,0 +1,517 @@
+package srikanth;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class ItechQA1 {
+	
+	WebDriver driver;
+
+
+	@BeforeClass
+	void setup() {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\Desktop\\chromedriver.exe");
+	
+	driver = new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	
+	driver.get("https://alpha.skil.ai/b/login");
+	
+	
+	
+	}
+	
+	@Test(priority=0)
+	void pendingToComplete() throws Exception {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//MyScreenRecorder.startRecording("pendingToComplete");
+	
+	driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	WebElement ele  =  driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]"));
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", ele);
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9490933944");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//mat-select[@aria-label = 'Pick Batch Id']")).click();
+	Thread.sleep(4000);
+	WebElement Element = driver.findElement(By.xpath("//td[contains(text() , 'B_2020JUL07_11')]"));
+	js.executeScript("arguments[0].scrollIntoView();", Element);
+	Element.click();
+	Thread.sleep(10000);
+	driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:17.999Z')]")).click();
+	Thread.sleep(51000);
+	//driver.findElement(By.xpath("//input[@class = 'mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty']")).sendKeys("a");
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 101049 ~ AdTran  CA ')]")).click();
+	//Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info justify-content-center ']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 7')]")).click();
+	//Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Save ')]")).click();
+	Thread.sleep(4000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+	//Thread.sleep(5000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Completed')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(8000);
+	//boolean b =driver.findElement(By.xpath("//div[contains(text() , '2020-07-24T09:50:12.188Z')]")).isDisplayed();
+	//Assert.assertTrue(b);
+	//System.out.println(b);
+	//MyScreenRecorder.stopRecording();
+	}
+	
+	@Test(priority=1)
+	void pendingToReject() throws Exception {
+	//MyScreenRecorder.startRecording("pendingToReject");
+	//WebElement ele2 = driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary highlight']"));
+	//JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+	//executor11.executeScript("arguments[0].click();", ele2);
+	driver.findElement(By.xpath("//button[contains(text() , 'Pending (2450)')]")).click();
+	//driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary highlight']")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:28:07.205Z')]")).click();
+	Thread.sleep(32000);
+	//driver.findElement(By.xpath("//input[@class = 'mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty']")).sendKeys("a");
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 101049 ~ AdTran  CA ')]")).click();
+	//Thread.sleep(4000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+	Thread.sleep(2000);
+    //driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	//Thread.sleep(2000);
+	//span[contains(text() , ' 2')]
+	//span[contains(text() , ' 3')]
+	//span[contains(text() , ' 4')]
+	//span[contains(text() , ' 5')]
+	//span[contains(text() , ' 6')]
+	//span[contains(text() , ' 7')]
+	//span[contains(text() , ' 8')]
+	//span[contains(text() , ' 9')]
+	//span[contains(text() , ' 10')]
+	//span[contains(text() , ' 11')]
+	//span[contains(text() , ' 12')]
+	WebElement ele12 = driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]"));
+	JavascriptExecutor executor12 = (JavascriptExecutor)driver;
+	executor12.executeScript("arguments[0].click();", ele12);
+	//driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Backup Only')]")).click();
+	Thread.sleep(15000);
+	//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+	//Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(8000);
+	//driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary btn-outline-danger']")).click();
+	driver.findElement(By.xpath("//button[contains(text() , 'Rejected (126)')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(8000);
+	//boolean b11 = driver.findElement(By.xpath("//div[contains(text() , '2020-07-24T09:50:12.188Z')]")).isDisplayed();
+	//Assert.assertTrue(b11);
+	//MyScreenRecorder.stopRecording();
+	}
+	
+	@Test(priority=2)
+	void pendingToIclarify() throws Exception {
+	//JavascriptExecutor js = (JavascriptExecutor) driver;
+	//MyScreenRecorder.startRecording("pendingToIclarify");
+	/*driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	WebElement ele  =  driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]"));
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", ele);
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9490933944");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.name("verifyCode")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//mat-select[@aria-label = 'Pick Batch Id']")).click();
+	Thread.sleep(4000);
+	WebElement Element = driver.findElement(By.xpath("//td[contains(text() , 'B_2020JUL24_03')]"));
+	js.executeScript("arguments[0].scrollIntoView();", Element);
+	Element.click();
+	Thread.sleep(10000);*/
+	//driver.findElement(By.xpath("//div[contains(text() , '2020-07-24T09:52:34.943Z')]")).click();
+	//Thread.sleep(32000);
+	//driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary highlight']")).click();
+	//WebElement ele2 = driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary highlight']"));
+	//JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+	//executor11.executeScript("arguments[0].click();", ele2);
+	driver.findElement(By.xpath("//button[contains(text() , 'Pending (2449)')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:22.029Z')]")).click();
+	Thread.sleep(22000);
+	//driver.findElement(By.xpath("//input[@class = 'mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty']")).sendKeys("a");
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 101049 ~ AdTran  CA ')]")).click();
+	Thread.sleep(4000);
+    driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+	Thread.sleep(2000);
+    driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	//Thread.sleep(2000);
+	driver.findElement(By.xpath("//textarea[@id = 'exampleFormControlTextarea1']")).sendKeys("Testing");
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info btn-block ng-star-inserted']")).click();
+	//WebElement ele1 = driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info btn-block ng-star-inserted']"));
+	//JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+	//executor1.executeScript("arguments[0].click();", ele1);
+	//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//button[contains(text() , ' Save ')]")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(10000);
+	driver.findElement(By.xpath("//button[contains(text() , 'iClarify (129)')]")).click();
+	//boolean b12 = driver.findElement(By.xpath("//div[contains(text() , '2020-07-24T09:50:28.278Z')]")).isDisplayed();
+	//Assert.assertTrue(b12);
+	//MyScreenRecorder.stopRecording();
+     }
+	
+	@Test(priority=3)
+	void IclarifyTOIclarify() throws Exception {
+	//JavascriptExecutor js = (JavascriptExecutor) driver;
+	//MyScreenRecorder.startRecording("IclarifyTOIclarify");
+	/*driver.findElement(By.xpath("//span[contains(text() , 'Country Code *')]")).click();
+	WebElement ele  =  driver.findElement(By.xpath("//span[contains(text() , ' India +91 ')]"));
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", ele);
+	driver.findElement(By.xpath("//input[@name = 'mentor_phone']")).sendKeys("9490933944");
+	driver.findElement(By.xpath("//button[@name = 'Submit']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//input[@placeholder = 'verification code']")).sendKeys("1289");
+	driver.findElement(By.xpath("//button[@name = 'Verify']")).click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//mat-select[@aria-label = 'Pick Batch Id']")).click();
+	Thread.sleep(4000);
+	WebElement Element = driver.findElement(By.xpath("//td[contains(text() , 'B_2020JUL24_03')]"));
+	js.executeScript("arguments[0].scrollIntoView();", Element);
+	Element.click();
+	Thread.sleep(10000);*/
+	//WebElement ele11  =  driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary']"));
+	//JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+	//executor11.executeScript("arguments[0].click();", ele11);
+	driver.findElement(By.xpath("//button[contains(text() , 'iClarify (129)')]")).click();
+	Thread.sleep(2000);
+    driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:22.029Z')]")).click();
+	Thread.sleep(22000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+    Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	//Thread.sleep(2000);	
+	driver.findElement(By.xpath("//textarea[@id = 'exampleFormControlTextarea1']")).sendKeys("Test1");
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info btn-block ng-star-inserted']")).click();
+	//WebElement ele1 = driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info btn-block ng-star-inserted']"));
+	//JavascriptExecutor executor1 = (JavascriptExecutor)driver;
+	//executor1.executeScript("arguments[0].click();", ele1);
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(10000);
+	//MyScreenRecorder.stopRecording();
+	}
+		
+	@Test(priority=4)
+	void IclarifyTOcomplete() throws Exception {
+	//MyScreenRecorder.startRecording("IclarifyTOcomplete");
+	driver.findElement(By.xpath("//button[contains(text() , 'iClarify (129)')]")).click();
+	Thread.sleep(2000);
+	    driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:22.029Z')]")).click();
+		Thread.sleep(22000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+		//Thread.sleep(2000);	
+		driver.findElement(By.xpath("//button[contains(text() , ' Save ')]")).click();
+		Thread.sleep(8000);
+		//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+		//Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Completed')]")).click();
+		Thread.sleep(8000);
+		//MyScreenRecorder.stopRecording();
+		}
+	
+	@Test(priority=5)
+	void IclarifyTOReject() throws Exception {	
+		//MyScreenRecorder.startRecording("IclarifyTOReject");
+		driver.findElement(By.xpath("//button[contains(text() , 'iClarify (128)')]")).click();
+		Thread.sleep(4000);
+	    driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:15.738Z')]")).click();
+		Thread.sleep(22000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+		//Thread.sleep(2000);	
+		WebElement ele12 = driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]"));
+		JavascriptExecutor executor12 = (JavascriptExecutor)driver;
+		executor12.executeScript("arguments[0].click();", ele12);
+		//driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Backup Only')]")).click();
+		Thread.sleep(15000);
+		//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+		//Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (127)')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+		//MyScreenRecorder.stopRecording();
+	}
+	
+	
+	@Test(priority=6)
+	void RejectToReject() throws Exception {
+		//MyScreenRecorder.startRecording("RejectToReject");
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (127)')]")).click();
+		Thread.sleep(2000);	
+	    driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:28:07.205Z")).click();
+		Thread.sleep(22000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	    //Thread.sleep(2000);				
+		WebElement ele2 = driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]"));
+		JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+		executor11.executeScript("arguments[0].click();", ele2);
+		//driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Backup Only')]")).click();
+		Thread.sleep(15000);
+		//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+		//Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+        //driver.findElement(By.xpath("//button[@class = 'btn btn-outline-primary btn-outline-danger']")).click();
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (127)')]")).click();
+		Thread.sleep(2000);
+		//MyScreenRecorder.stopRecording();
+		}
+	
+	@Test(priority=7)
+	void RejectToComplete() throws Exception {
+		//MyScreenRecorder.startRecording("RejectToComplete");
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (127)')]")).click();
+	Thread.sleep(2000);	
+	 driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:28:07.205Z')]")).click();
+		Thread.sleep(22000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+		//Thread.sleep(2000);		
+		driver.findElement(By.xpath("//button[contains(text() , ' Save ')]")).click();
+		Thread.sleep(8000);
+		//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+		//Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Completed')]")).click();
+		Thread.sleep(8000);
+		//MyScreenRecorder.stopRecording();
+		}
+	
+	@Test(priority=8)
+	void RejectToIclarify() throws Exception {
+	//MyScreenRecorder.startRecording("RejectToIclarify");
+	driver.findElement(By.xpath("//button[contains(text() , 'Rejected (126)')]")).click();
+	Thread.sleep(2000);	
+    driver.findElement(By.xpath("//div[contains(text() , '2020-07-07T17:29:01.690Z')]")).click();
+	Thread.sleep(22000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+    Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+	//Thread.sleep(2000);
+	//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+    //Thread.sleep(2000);			
+	driver.findElement(By.xpath("//textarea[@id = 'exampleFormControlTextarea1']")).sendKeys("Test2");
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[@class = 'btn btn-outline-info btn-block ng-star-inserted']")).click();
+	//
+	//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+	//Thread.sleep(4000);
+	//driver.findElement(By.xpath("//button[contains(text() , ' Save ')]")).click();
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+	Thread.sleep(10000);
+	driver.findElement(By.xpath("//button[contains(text() , 'iClarify (128)')]")).click();
+	//MyScreenRecorder.stopRecording();
+	}
+	
+	
+	/**@Test(priority=8)
+	void RejectToReject() throws Exception {
+		MyScreenRecorder.startRecording("RejectToReject");
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (120)')]")).click();
+		Thread.sleep(2000);	
+	    driver.findElement(By.xpath("//div[contains(text() , '2020-07-24T09:56:36.613Z")).click();
+		Thread.sleep(22000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 1')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 2')]")).click();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 3')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text() , ' 4')]")).click();
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 5')]")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//span[contains(text() , ' 6')]")).click();
+	    //Thread.sleep(2000);				
+		WebElement ele2 = driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]"));
+		JavascriptExecutor executor11 = (JavascriptExecutor)driver;
+		executor11.executeScript("arguments[0].click();", ele2);
+		//driver.findElement(By.xpath("//button[contains(text() , 'Reject ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Backup Only')]")).click();
+		Thread.sleep(15000);
+		//driver.findElement(By.xpath("//span[contains(text() , 'Yes')]")).click();
+		//Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , ' Cancel ')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Refresh')]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[contains(text() , 'Rejected (120)')]")).click();
+		Thread.sleep(2000);
+		MyScreenRecorder.stopRecording();
+		}**/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@AfterClass
+	 void tearDown()
+	 {
+	  driver.close();
+	 }
+	
+	
+	
+	
+
+}
